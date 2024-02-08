@@ -1,12 +1,12 @@
 <script>
-import AppComponent from "./components/AppComponent.vue"
+import AppEventList from "./components/AppEventList.vue"
 
 import axios from 'axios'; //importo Axios
 import { store } from "./store.js" //state management
 
 export default {
 	components: {
-		AppComponent
+		AppEventList
 	},
 	data() {
 		return {
@@ -14,17 +14,24 @@ export default {
 		}
 	},
 	mounted() {
-		this.doThings();
-
-		// axios.get("indirizzo").then(risultato => {
-		// 	console.log(risultato);
-		// }).catch(errore => {
-		// 	console.error(errore);
-		// });
+		this.getEventList();
 	},
 	methods: {
-		doThings() {
-			console.log("App.vue does things");
+		getEventList() {
+
+			let url = this.store.apiUrl + this.store.apiEventEndpoint;
+
+			axios.get(url).then(risultato => {
+				if (risultato.status === 200 && risultato.data.success) {
+					console.log(risultato.data.content);
+					this.store.eventList = risultato.data.content;
+				} else {
+
+					console.error("la tua chiamata non è andata a buon fine");
+				}
+			}).catch(errore => {
+				console.error(errore);
+			});
 		}
 	}
 }
@@ -32,7 +39,8 @@ export default {
 
 <template>
 	<main>
-		<AppComponent />
+		<h1>Prenota qui i tuoi biglietti</h1>
+		<AppEventList />
 	</main>
 </template>
 

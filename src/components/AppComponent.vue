@@ -23,7 +23,7 @@ export default {
 
 <template>
     <div>
-        <h1>Sono un componente!</h1>
+        <h1>Sono un componente</h1>
     </div>
 </template>
 
