@@ -1,12 +1,14 @@
 <script>
-import AppEventList from "./components/AppEventList.vue"
+import AppEventCard from "./components/AppEventCard.vue"
+import AppHeader from "./components/AppHeader.vue"
 
 import axios from 'axios'; //importo Axios
 import { store } from "./store.js" //state management
 
 export default {
 	components: {
-		AppEventList
+		AppEventCard,
+		AppHeader,
 	},
 	data() {
 		return {
@@ -40,6 +42,7 @@ export default {
 <template>
 	<main>
 		<h1>Prenota qui i tuoi biglietti</h1>
+		<AppHeader />
 		<router-view></router-view>
 	</main>
 </template>
