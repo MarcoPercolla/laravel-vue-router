@@ -17,7 +17,7 @@ export default {
 <template>
     <div class="cardContainer">
 
-        <AppEventCard v-for="evento in store.eventList" :evento="store.eventList[0]" />
+        <AppEventCard v-for="evento in store.eventList" :evento="evento" />
     </div>
 </template>
 
