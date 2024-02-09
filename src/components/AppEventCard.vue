@@ -1,40 +1,27 @@
 <script>
-import { store } from "../store.js" //state management
+
 
 export default {
-    name: "AppEventList",
-    data() {
-        return {
-            store
-        }
-    }
+    name: "AppEventCard",
+    props: ["evento"]
 }
 </script>
 
 <template>
-    <div class="cardContainer">
+    <div class="card">
+        <div class="cardCase">
+            <div class="date">{{ evento.date }}</div>
 
-
-
-        <div class="card" v-for="evento in store.eventList">
-            <div class="cardCase">
-                <div class="date">{{ evento.date }}</div>
-
-                <h5>{{ evento.name }}</h5>
-                <h6>{{ evento.user_id.name }}</h6>
-                <p>Restano <b>{{ evento.available_tickets }}</b> biglietti disponibili.</p>
-            </div>
-            <div class="cardFooter">
-                <a href="#" class="cardBtn">
-
-                    <span>prenota</span>
-                </a>
-            </div>
-
+            <h5>{{ evento.name }}</h5>
+            <h6>{{ evento.user_id.name }}</h6>
+            <p>Restano <b>{{ evento.available_tickets }}</b> biglietti disponibili.</p>
         </div>
+        <div class="cardFooter">
+            <a href="#" class="cardBtn">
 
-
-
+                <span>prenota</span>
+            </a>
+        </div>
 
     </div>
 </template>

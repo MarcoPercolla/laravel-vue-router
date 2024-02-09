@@ -1,10 +1,10 @@
 <script>
 import { store } from "../store.js" //state management
-import AppEventList from "../components/AppEventList.vue";
+import AppEventCard from "../components/AppEventCard.vue";
 export default {
     name: "HomePage",
     components: {
-        AppEventList
+        AppEventCard
     },
     data() {
         return {
@@ -15,7 +15,19 @@ export default {
 </script>
 
 <template>
-    <AppEventList />
+    <div class="cardContainer">
+
+        <AppEventCard v-for="evento in store.eventList" :evento="store.eventList[0]" />
+    </div>
 </template>
 
-<style scoped></style> 
+<style scoped>
+.cardContainer {
+    width: 80vw;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 auto;
+}
+</style> 
