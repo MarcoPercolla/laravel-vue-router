@@ -16,6 +16,7 @@ export default {
                     label: "Chi siamo"
                 },
 
+
             ]
         }
 

@@ -17,6 +17,13 @@ export default {
             <p>Restano <b>{{ evento.available_tickets }}</b> biglietti disponibili.</p>
         </div>
         <div class="cardFooter">
+
+            <router-link :to="{
+                name: 'detail', params: { id: evento.id }
+            }">
+                <p>dettaglio</p>
+            </router-link>
+
             <a href="#" class="cardBtn">
 
                 <span>prenota</span>
