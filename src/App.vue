@@ -40,7 +40,7 @@ export default {
 <template>
 	<main>
 		<h1>Prenota qui i tuoi biglietti</h1>
-		<AppEventList />
+		<router-view></router-view>
 	</main>
 </template>
 
