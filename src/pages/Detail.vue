@@ -24,6 +24,7 @@ export default {
                 if (result.status === 200) {
                     if (result.data.success) {
                         this.event = result.data.payload;
+
                     } else {
                         console.error("error: chiamata senza successo.");
                     }
@@ -50,16 +51,40 @@ export default {
 
 <template>
     <div v-if="id">
-        <h1>Dettaglio evento {{ event?.id }}</h1>
-        <div class="date">{{ event?.date }}</div>
+        <div class="top">
+            <h1>Dettaglio evento N°{{ event?.id }}</h1>
+            <div class="date">{{ event?.date }}</div>
 
-        <h5>{{ event?.name }}</h5>
-        <h6>{{ event?.user_id }}</h6>
-        <p>Restano <b>{{ event?.available_tickets }}</b> biglietti disponibili.</p>
-        <p>{{ event?.user?.name }}</p>
-        <span v-for="tag in event?.tags">
-            {{ tag.name }}</span>
+            <h5>{{ event?.name }}</h5>
+            <h6>user id:{{ event?.user_id }}</h6>
+            <p>Restano <b>{{ event?.available_tickets }}</b> biglietti disponibili.</p>
+            <p>creato da:{{ event?.user?.name }}</p>
+
+            <div class="bottom">
+                <span class="tags" v-for="tag in event?.tags">
+                    {{ tag.name }}</span>
+            </div>
+        </div>
     </div>
 </template>
 
-<style scoped></style> 
+<style scoped>
+.tags {
+    margin-right: 0.3rem;
+    padding: 0.2rem;
+    background-color: greenyellow;
+    color: black;
+    border-radius: 0.3rem;
+}
+
+.top {
+    background-color: rgb(0, 115, 255);
+    padding: 0.3rem;
+    width: 70vw;
+    margin: auto;
+}
+
+.bottom {
+    margin-top: 1rem;
+}
+</style> 
